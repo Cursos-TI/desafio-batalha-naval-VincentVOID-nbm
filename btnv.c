@@ -1,12 +1,11 @@
 #include <stdio.h>
 
-#define TAM 10       // Tamanho fixo do tabuleiro
-#define NAVIO_TAM 3  // Tamanho fixo dos navios
+#define TAM 10           // Tamanho fixo do tabuleiro
+#define NAVIO_TAM 3      // Tamanho fixo dos navios
+#define VALOR_NAVIO 3    // Valor usado para representar um navio
 
 int main() {
     int tabuleiro[TAM][TAM];  // Matriz que representa o tabuleiro
-    int navioH[NAVIO_TAM];    // Vetor para navio horizontal
-    int navioV[NAVIO_TAM];    // Vetor para navio vertical
 
     // 1. Inicializa o tabuleiro com 0 (água)
     for(int i = 0; i < TAM; i++) {
@@ -15,7 +14,7 @@ int main() {
         }
     }
 
-    // 2. Define as posições iniciais (pré-definidas no código)
+    // 2. Define as posições iniciais
     int linhaH = 2;  // Linha inicial do navio horizontal
     int colunaH = 4; // Coluna inicial do navio horizontal
 
@@ -27,14 +26,12 @@ int main() {
 
         // 4. Posiciona o navio horizontal
         for(int i = 0; i < NAVIO_TAM; i++) {
-            navioH[i] = 3;  // Preenche o vetor do navio com valor 3
-            tabuleiro[linhaH][colunaH + i] = navioH[i];  // Coloca na matriz
+            tabuleiro[linhaH][colunaH + i] = VALOR_NAVIO;
         }
 
         // 5. Posiciona o navio vertical
         for(int i = 0; i < NAVIO_TAM; i++) {
-            navioV[i] = 3;  // Preenche o vetor do navio com valor 3
-            tabuleiro[linhaV + i][colunaV] = navioV[i];  // Coloca na matriz
+            tabuleiro[linhaV + i][colunaV] = VALOR_NAVIO;
         }
     } else {
         printf("Erro: os navios não cabem no tabuleiro.\n");
